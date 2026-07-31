@@ -2,8 +2,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iaenglish/config/constant/dimension.dart';
+import 'package:iaenglish/config/constant/size.dart';
+import 'package:iaenglish/core/themes/provider/themeProvide.dart';
 import 'package:provider/provider.dart';
-import 'package:iaenglish/config/theme/app_theme.dart';
 
 class NavigationContainerState extends StatefulWidget{
   
@@ -22,27 +23,28 @@ class _NavigationContainer extends State<NavigationContainerState> {
  Widget build(BuildContext context){
   final colors            = Provider.of<ThemeProvider>(context).colors;
   final  Widget container = widget.container;
+  SizeValues Dimension = SizeValues();
 
    return Positioned(
-              top: widget.posTop ?? Dimension.size.positionedTop,
-              left: Dimension.size.positionedLeft,
-              right: Dimension.size.positionedRight,
-              bottom: Dimension.size.positionedBottom,
+              top: widget.posTop ?? Dimension.positionedTop,
+              left: Dimension.positionedLeft,
+              right: Dimension.positionedRight,
+              bottom: Dimension.positionedBottom,
               child: Container(
-                padding: EdgeInsets.all(Dimension.size.containerPadding),
+                padding: EdgeInsets.all(Dimension.containerPadding),
                 decoration: BoxDecoration(
                   color: colors.homeStackSecondChildBackground,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(Dimension.size.radiusTopLeft),
-                    topRight: Radius.circular(Dimension.size.radiusTopRight),
-                    bottomLeft: Radius.circular(Dimension.size.radiusBottomLeft),
-                    bottomRight: Radius.circular(Dimension.size.radiusBottomRight),
+                    topLeft: Radius.circular(Dimension.radiusTopLeft),
+                    topRight: Radius.circular(Dimension.radiusTopRight),
+                    bottomLeft: Radius.circular(Dimension.radiusBottomLeft),
+                    bottomRight: Radius.circular(Dimension.radiusBottomRight),
                   ),
                   boxShadow: [
                     BoxShadow(
                       color: colors.primaryShadown,
-                      blurRadius: Dimension.size.shadowBlurRadius,
-                      offset: Dimension.size.shadowOffset,
+                      blurRadius: Dimension.shadowBlurRadius,
+                      offset: Dimension.shadowOffset,
                     ),
                   ],
                 ),

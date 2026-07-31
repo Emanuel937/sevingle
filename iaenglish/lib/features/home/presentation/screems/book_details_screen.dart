@@ -1,27 +1,27 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iaenglish/ui/composants/navigation_bar_active_content.dart';
-import 'package:iaenglish/ui/composants/top_navigation.dart';
+import 'package:iaenglish/config/constant/size.dart';
+import 'package:iaenglish/core/themes/provider/themeProvide.dart';
+import 'package:iaenglish/core/themes/typographie/cuppertinoText.dart';
+import 'package:iaenglish/shared/widgets/navigatorPop.dart';
 import 'package:provider/provider.dart';
-import 'package:iaenglish/config/theme/app_theme.dart';
-import 'package:iaenglish/config/constant/dimension.dart';
 import 'package:flutter_html/flutter_html.dart' as html;
-import 'package:google_fonts/google_fonts.dart';
 
 
-class Reader extends StatefulWidget{
+class BookDetailsScreen extends StatefulWidget{
 
   @override
-  _ReaderState createState() => _ReaderState();
+  _BookDetailsScreen createState() => _BookDetailsScreen();
 
 }
 
 
-class _ReaderState extends State<Reader>{
+class _BookDetailsScreen extends State<BookDetailsScreen>{
   @override
   Widget build(BuildContext context){
 
     final colors = Provider.of<ThemeProvider>(context).colors;
-     const text = '''
+    SizeValues Dimension = SizeValues();
+    const text = '''
  <div>
           <p><strong>Anna e:</strong> Hie! How are you today?</p>
           <p><strong>Ben:</strong> I'm good, thank you! And you?</p>
@@ -42,35 +42,22 @@ class _ReaderState extends State<Reader>{
           children: [
             Container(
               color: colors.homeStackFirstChildBackground,
-              width: Dimension.size.infinities,
-              height: Dimension.size.infinities,
-              padding: EdgeInsets.all(Dimension.size.containerPadding),
+              width: Dimension.infinities,
+              height: Dimension.infinities,
+              padding: EdgeInsets.all(Dimension.containerPadding),
               child: Column(children: [
 
                   Row(
-                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment:MainAxisAlignment.start,
                     children: [
                       
-                      Icon(CupertinoIcons.back,
-                        color: colors.cardTitle,
-                        size: Dimension.font.title,
-                      ),
-                        Text(
-                            'Nature and IA',
-                            style: GoogleFonts.playfairDisplay(  // Corrected GoogleFonts and font name
-                              fontSize: Dimension.font.extraLarge,
-                              fontWeight: FontWeight.w600,
-                              color: colors.cardTitle,
-                            ),
-                          ),
-                         Icon(CupertinoIcons.search,
-                          color: colors.iconInactive,
-                          size: Dimension.font.title,
-                      ),
+                        NavigatorPop(context: context),
+                         CupertinoText.large(context, "Title"),
+                         
                     ],
                   ),
                   SingleChildScrollView(
-                    padding: EdgeInsets.all(Dimension.size.containerPadding),
+                    padding: EdgeInsets.all(Dimension.containerPadding),
                     child:html.Html(data:text)
                   ),
                   
