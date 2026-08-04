@@ -11,7 +11,7 @@ class BottomNavItems {
     {
       'icon': CupertinoIcons.book,
       'label': 'Learn',
-      'route': RouteNames.lesson,
+      'route': RouteNames.learn_list,
     },
       {
       'icon': CupertinoIcons.device_laptop,
@@ -19,8 +19,8 @@ class BottomNavItems {
       'route': RouteNames.training,
     },
     {
-      'icon': CupertinoIcons.settings,
-      'label': 'Setting',
+      'icon': CupertinoIcons.list_dash,
+      'label': 'Profil',
       'route': RouteNames.setting,
     }
   ];

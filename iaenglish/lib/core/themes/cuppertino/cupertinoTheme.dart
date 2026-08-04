@@ -3,7 +3,7 @@ import 'package:iaenglish/core/themes/provider/themeProvide.dart';
 
 CupertinoThemeData setTheme({required ThemeProvider themeProvider}) {
   return CupertinoThemeData(
-    scaffoldBackgroundColor: themeProvider.colors.scaffoldPageBackground,
+    scaffoldBackgroundColor: themeProvider.colors.background,
     brightness: themeProvider.isDark ? Brightness.dark : Brightness.light,
   );
 }

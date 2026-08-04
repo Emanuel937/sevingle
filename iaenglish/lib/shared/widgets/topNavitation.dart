@@ -8,31 +8,32 @@ class TopNavigationMenuBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final colors = Provider.of<ThemeProvider>(context).colors;
+    final colors = context.watch<ThemeProvider>().colors;
 
     return Row(
       children: [
-         Topnavigationitens(
-          icon: CupertinoIcons.home, 
+        Topnavigationitens(
+          icon: CupertinoIcons.home,
           label: 'PodCast',
-          color: colors.iconInactive,
-        ),
+          color: colors.primary.withOpacity(
+            0.64
+           // old: iconInactive
+        )),
         Topnavigationitens(
           icon: CupertinoIcons.tv,
           label: 'TV',
-          color: colors.navigationItensBackground,
+          color: colors.secondary.withOpacity(
+            0.3
+          ), // old: navigationItensBackground
         ),
         Topnavigationitens(
           icon: CupertinoIcons.wifi_exclamationmark,
           label: 'Training',
-          color:colors.navigationItensBackground ,
+          color:  colors.secondary.withOpacity(
+            0.3
+          ), // old: navigationItensBackground
         ),
-        
       ],
     );
   }
 }
-
-
-

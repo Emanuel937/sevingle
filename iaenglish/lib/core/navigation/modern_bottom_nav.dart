@@ -34,7 +34,7 @@ class _ModernBottomNavState extends State<ModernBottomNav> {
           children: [
             CupertinoPageScaffold(
               child: SafeArea(
-                child: screen, 
+                child: screen,
               ),
             ),
 
@@ -45,7 +45,7 @@ class _ModernBottomNavState extends State<ModernBottomNav> {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 decoration: BoxDecoration(
-                  color: colors.topNavigationBackground,
+                  color: colors.surface, // old: topNavigationBackground
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
@@ -68,7 +68,7 @@ class _ModernBottomNavState extends State<ModernBottomNav> {
                         duration: const Duration(milliseconds: 250),
                         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                         decoration: BoxDecoration(
-                          color: colors.topNavigationBackground,
+                          color: colors.surface, // old: topNavigationBackground
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Row(
@@ -76,8 +76,8 @@ class _ModernBottomNavState extends State<ModernBottomNav> {
                             Icon(
                               item['icon'] as IconData,
                               color: isActive
-                                  ? colors.topNavigationActiveIcon
-                                  : colors.topNavigationInActiveIcon,
+                                  ? colors.onBackground // old: topNavigationActiveIcon
+                                  : colors.onBackground.withOpacity(0.5), // old: topNavigationInActiveIcon
                               size: 22,
                             ),
                             if (isActive)
@@ -88,7 +88,7 @@ class _ModernBottomNavState extends State<ModernBottomNav> {
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
-                                    color: colors.topNavigationActiveIcon,
+                                    color: colors.onBackground, // active label color
                                   ),
                                 ),
                               ),

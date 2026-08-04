@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iaenglish/core/themes/provider/themeProvide.dart';
 
 class CupertinoText {
+  
   static const double largeTitle = 20;
   static const double title1 = 14;
   static const double title2 = 13;
@@ -15,137 +16,200 @@ class CupertinoText {
   static const double footnote = 13;
   static const double caption1 = 12;
   static const double caption2 = 12;
+  static const double italic = 16;
 
-  static Widget large(BuildContext context, String text) {
-    final themeColor = context.watch<ThemeProvider>().colors.cardTitle;
+  // LARGE TITLE
+  static Widget large(
+    BuildContext context,
+    String text, {
+    TextStyle? copyWith,
+  }) {
+    final themeColor = context.watch<ThemeProvider>().colors.onSurface;
 
-    return Text(
-      text,
-      style: GoogleFonts.nunito(
-        fontSize: largeTitle,
-        fontWeight: FontWeight.w800,
-        color: themeColor,
-        height: 1.25,
-      ),
+    final base = GoogleFonts.nunito(
+      fontSize: largeTitle,
+      fontWeight: FontWeight.w800,
+      color: themeColor,
+      height: 1.25,
     );
+
+    return Text(text, style: base.merge(copyWith));
   }
 
-  static Widget title(BuildContext context, String text,
-      {FontWeight weight = FontWeight.w700}) {
-    final themeColor = context.watch<ThemeProvider>().colors.cardTitle;
+  // TITLE
+  static Widget title(
+    BuildContext context,
+    String text, {
+    FontWeight weight = FontWeight.w700,
+    TextStyle? copyWith,
+  }) {
+    final themeColor = context.watch<ThemeProvider>().colors.onSurface;
 
-    return Text(
-      text,
-      style: GoogleFonts.nunito(
-        fontSize: title1,
-        fontWeight: weight,
-        color: themeColor,
-        height: 1.25,
-      ),
+    final base = GoogleFonts.nunito(
+      fontSize: title1,
+      fontWeight: weight,
+      color: themeColor,
+      height: 1.25,
     );
+
+    return Text(text, style: base.merge(copyWith));
   }
 
-  static Widget subtitle(BuildContext context, String text,
-      {FontWeight weight = FontWeight.w600}) {
-    final themeColor = context.watch<ThemeProvider>().colors.cardTitle;
+  // SUBTITLE
+  static Widget subtitle(
+    BuildContext context,
+    String text, {
+    FontWeight weight = FontWeight.w600,
+    TextStyle? copyWith,
+  }) {
+    final themeColor = context.watch<ThemeProvider>().colors.onSurface;
 
-    return Text(
-      text,
-      style: GoogleFonts.nunito(
-        fontSize: title2,
-        fontWeight: weight,
-        color: themeColor.withOpacity(0.9),
-        height: 1.25,
-      ),
+    final base = GoogleFonts.nunito(
+      fontSize: title2,
+      fontWeight: weight,
+      color: themeColor.withOpacity(0.9),
+      height: 1.25,
     );
+
+    return Text(text, style: base.merge(copyWith));
   }
 
-  static Widget bodyText(BuildContext context, String text) {
+  // BODY TEXT
+  static Widget bodyText(
+    BuildContext context,
+    String text, {
+    TextStyle? copyWith,
+  }) {
+    final themeColor =
+        context.read<ThemeProvider>().colors.onSurfaceVariant;
 
-    final themeColor = context.read<ThemeProvider>().colors.cardDescription;
-    return Text(
-      text,
-      style: GoogleFonts.nunito(
-        fontSize: body,
-        fontWeight: FontWeight.w400,
-        color: themeColor.withOpacity(0.85),
-        height: 1.4,
-      ),
+    final base = GoogleFonts.nunito(
+      fontSize: body,
+      fontWeight: FontWeight.w400,
+      color: themeColor.withOpacity(0.85),
+      height: 1.4,
     );
+
+    return Text(text, style: base.merge(copyWith));
   }
 
-  static Widget calloutText(BuildContext context, String text,
-      {FontWeight weight = FontWeight.w600}) {
-    final themeColor = context.read<ThemeProvider>().colors.cardDescription;
+  // CALLOUT
+  static Widget calloutText(
+    BuildContext context,
+    String text, {
+    FontWeight weight = FontWeight.w600,
+    TextStyle? copyWith,
+  }) {
+    final themeColor =
+        context.read<ThemeProvider>().colors.onSurfaceVariant;
 
-    return Text(
-      text,
-      style: GoogleFonts.nunito(
-        fontSize: callout,
-        fontWeight: weight,
-        color: themeColor,
-        height: 1.3,
-      ),
+    final base = GoogleFonts.nunito(
+      fontSize: callout,
+      fontWeight: weight,
+      color: themeColor,
+      height: 1.3,
     );
+
+    return Text(text, style: base.merge(copyWith));
   }
 
-  static Widget subheadText(BuildContext context, String text,
-      {FontWeight weight = FontWeight.w500}) {
-    final themeColor = context.watch<ThemeProvider>().colors.cardDescription;
+  // SUBHEAD
+  static Widget subheadText(
+    BuildContext context,
+    String text, {
+    FontWeight weight = FontWeight.w500,
+    TextStyle? copyWith,
+  }) {
+    final themeColor =
+        context.watch<ThemeProvider>().colors.onSurfaceVariant;
 
-    return Text(
-      text,
-      style: GoogleFonts.nunito(
-        fontSize: subhead,
-        fontWeight: weight,
-        color: themeColor,
-        height: 1.3,
-      ),
+    final base = GoogleFonts.nunito(
+      fontSize: subhead,
+      fontWeight: weight,
+      color: themeColor,
+      height: 1.3,
     );
+
+    return Text(text, style: base.merge(copyWith));
   }
 
-  static Widget footnoteText(BuildContext context, String text,
-      {FontWeight weight = FontWeight.w400}) {
-    final themeColor = context.watch<ThemeProvider>().colors.cardLabelText;
+  // FOOTNOTE
+  static Widget footnoteText(
+    BuildContext context,
+    String text, {
+    FontWeight weight = FontWeight.w400,
+    TextStyle? copyWith,
+  }) {
+    final themeColor =
+        context.watch<ThemeProvider>().colors.onPrimaryContainer;
 
-    return Text(
-      text,
-      style: GoogleFonts.nunito(
-        fontSize: footnote,
-        fontWeight: weight,
-        color: themeColor.withOpacity(0.85),
-        height: 1.3,
-      ),
+    final base = GoogleFonts.nunito(
+      fontSize: footnote,
+      fontWeight: weight,
+      color: themeColor.withOpacity(0.85),
+      height: 1.3,
     );
+
+    return Text(text, style: base.merge(copyWith));
   }
 
-  static Widget caption(BuildContext context, String text,
-      {FontWeight weight = FontWeight.w400}) {
-    final themeColor = context.watch<ThemeProvider>().colors.cardDescription;
+  // CAPTION
+  static Widget caption(
+    BuildContext context,
+    String text, {
+    FontWeight weight = FontWeight.w400,
+    TextStyle? copyWith,
+  }) {
+    final themeColor =
+        context.watch<ThemeProvider>().colors.onSurfaceVariant;
 
-    return Text(
-      text,
-      style: GoogleFonts.nunito(
-        fontSize: caption1,
-        fontWeight: weight,
-        color: themeColor.withOpacity(0.85),
-        height: 1.3,
-      ),
+    final base = GoogleFonts.nunito(
+      fontSize: caption1,
+      fontWeight: weight,
+      color: themeColor.withOpacity(0.85),
+      height: 1.3,
     );
+
+    return Text(text, style: base.merge(copyWith));
   }
 
-  static Widget small(BuildContext context, String text,
-      {FontWeight weight = FontWeight.w600}) {
-    final themeColor = context.watch<ThemeProvider>().colors.navigationItensText;
+  // SMALL TEXT
+  static Widget small(
+    BuildContext context,
+    String text, {
+    TextStyle? copyWith,
+  }) {
+    final themeColor =
+        context.watch<ThemeProvider>().colors.onBackground;
 
-    return Text(
-      text,
-      style: GoogleFonts.nunito(
-        fontSize: caption2,
-        fontWeight: weight,
-        color: themeColor.withOpacity(0.9),
-        height: 1.3,
-      ),
+    final base = GoogleFonts.nunito(
+      fontSize: caption2,
+      fontWeight: FontWeight.w400,
+      color: themeColor.withOpacity(0.9),
+      height: 1.3,
     );
+
+    return Text(text, style: base.merge(copyWith));
+  }
+
+  // ITALIC TEXT
+  static Widget italicText(
+    BuildContext context,
+    String text, {
+    FontWeight weight = FontWeight.w400,
+    TextStyle? copyWith,
+  }) {
+    final themeColor =
+        context.watch<ThemeProvider>().colors.onSurfaceVariant;
+
+    final base = GoogleFonts.hind(
+      fontSize: italic,
+      fontStyle: FontStyle.italic,
+      fontWeight: weight,
+      color: themeColor.withOpacity(0.85),
+      height: 1.4,
+    );
+
+    return Text(text, style: base.merge(copyWith));
   }
 }

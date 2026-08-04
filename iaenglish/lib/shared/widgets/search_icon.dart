@@ -1,12 +1,11 @@
 
 import 'package:flutter/cupertino.dart';
-import 'package:iaenglish/config/constant/dimension.dart';
+import 'package:flutter/material.dart';
+import 'package:iaenglish/core/themes/colors/abstract.dart';
 
-// ignore: non_constant_identifier_names
-Widget SearchIcon(dynamic colors){
-
-  return Icon(CupertinoIcons.search,
-                          color: colors.iconInactive,
-                          size: 10
-                      );
+Widget SearchIcon(){
+  return Icon(
+    CupertinoIcons.search,
+    size: 18,
+  );
 }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iaenglish/config/constant/dimension.dart';
@@ -6,50 +5,52 @@ import 'package:iaenglish/config/constant/size.dart';
 import 'package:iaenglish/core/themes/provider/themeProvide.dart';
 import 'package:provider/provider.dart';
 
-class NavigationContainerState extends StatefulWidget{
-  
+class NavigationContainerState extends StatefulWidget {
   final Widget container;
-  final double? posTop; 
+  final double? posTop;
 
-  const NavigationContainerState({super.key, required this.container, this.posTop});
+  const NavigationContainerState({
+    super.key,
+    required this.container,
+    this.posTop,
+  });
 
   @override
-  _NavigationContainer createState() =>  _NavigationContainer();
+  _NavigationContainer createState() => _NavigationContainer();
 }
 
 class _NavigationContainer extends State<NavigationContainerState> {
- 
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.watch<ThemeProvider>().colors;
+    final Widget container = widget.container;
+    SizeValues dimension = SizeValues();
 
- Widget build(BuildContext context){
-  final colors            = Provider.of<ThemeProvider>(context).colors;
-  final  Widget container = widget.container;
-  SizeValues Dimension = SizeValues();
-
-   return Positioned(
-              top: widget.posTop ?? Dimension.positionedTop,
-              left: Dimension.positionedLeft,
-              right: Dimension.positionedRight,
-              bottom: Dimension.positionedBottom,
-              child: Container(
-                padding: EdgeInsets.all(Dimension.containerPadding),
-                decoration: BoxDecoration(
-                  color: colors.homeStackSecondChildBackground,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(Dimension.radiusTopLeft),
-                    topRight: Radius.circular(Dimension.radiusTopRight),
-                    bottomLeft: Radius.circular(Dimension.radiusBottomLeft),
-                    bottomRight: Radius.circular(Dimension.radiusBottomRight),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: colors.primaryShadown,
-                      blurRadius: Dimension.shadowBlurRadius,
-                      offset: Dimension.shadowOffset,
-                    ),
-                  ],
-                ),
-                child: container,
-              ),
-            );
- }
+    return Positioned(
+      top: widget.posTop ?? dimension.positionedTop,
+      left: dimension.positionedLeft,
+      right: dimension.positionedRight,
+      bottom: dimension.positionedBottom,
+      child: Container(
+        padding: EdgeInsets.all(dimension.containerPadding),
+        decoration: BoxDecoration(
+          color: colors.surfaceVariant, // old: homeStackSecondChildBackground
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(dimension.radiusTopLeft),
+            topRight: Radius.circular(dimension.radiusTopRight),
+            bottomLeft: Radius.circular(dimension.radiusBottomLeft),
+            bottomRight: Radius.circular(dimension.radiusBottomRight),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: colors.shadow, // old: primaryShadown
+              blurRadius: dimension.shadowBlurRadius,
+              offset: dimension.shadowOffset,
+            ),
+          ],
+        ),
+        child: container,
+      ),
+    );
+  }
 }
