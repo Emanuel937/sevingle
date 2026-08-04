@@ -8,11 +8,12 @@ import 'package:provider/provider.dart';
 class NavigationContainerState extends StatefulWidget {
   final Widget container;
   final double? posTop;
-
+  final double? padding;
   const NavigationContainerState({
     super.key,
     required this.container,
     this.posTop,
+    this.padding
   });
 
   @override
@@ -32,7 +33,7 @@ class _NavigationContainer extends State<NavigationContainerState> {
       right: dimension.positionedRight,
       bottom: dimension.positionedBottom,
       child: Container(
-        padding: EdgeInsets.all(dimension.containerPadding),
+        padding: EdgeInsets.all(widget.padding ?? dimension.containerPadding),
         decoration: BoxDecoration(
           color: colors.surfaceVariant, // old: homeStackSecondChildBackground
           borderRadius: BorderRadius.only(

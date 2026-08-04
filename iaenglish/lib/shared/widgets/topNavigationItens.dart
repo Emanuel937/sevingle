@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:iaenglish/core/themes/provider/themeProvide.dart';
 import 'package:iaenglish/core/themes/typographie/cuppertinoText.dart';
-import 'package:provider/provider.dart';
 
 class Topnavigationitens extends StatelessWidget {
   final IconData icon;
@@ -20,11 +18,12 @@ class Topnavigationitens extends StatelessWidget {
     
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Container(
-          margin: const EdgeInsets.only(left: 30, top: 30, right: 20),
-          width: 50,
-          height: 50,
+          margin: const EdgeInsets.only( top: 30, right: 30),
+          width: 40,
+          height: 40,
           decoration: BoxDecoration(
             color: color, // new Material name passed from parent
             borderRadius: const BorderRadius.all(Radius.circular(15)),
@@ -37,7 +36,7 @@ class Topnavigationitens extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         Container(
-          margin: const EdgeInsets.only(left: 30, top: 10, right: 20),
+          margin: const EdgeInsets.only(top: 10, right: 30),
           child: CupertinoText.small(context, label),
         ),
       ],

@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:iaenglish/core/themes/provider/themeProvide.dart';
 import 'package:iaenglish/core/themes/typographie/cuppertinoText.dart';
 import 'package:iaenglish/features/home/data/card_data.dart';
+import 'package:iaenglish/features/home/presentation/widgets/calltoaction_learn.dart';
 import 'package:iaenglish/features/home/presentation/widgets/categories_card.dart';
 import 'package:iaenglish/shared/widgets/morebutton.dart';
 import 'package:iaenglish/shared/widgets/pageSkeleton.dart';
@@ -24,51 +24,119 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Provider.of<ThemeProvider>(context).colors;
-    Widget Content(){
-        return  Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: Dimension.listSpacing),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                      CupertinoText.large(context, 'Books'),
-                       CategoryNavigateButton(context, (){})
-                    ]),
-
-                    SizedBox(height: Dimension.sectionSpacing),
-                    CupertinoText.bodyText(context, 'Voici le contenu sugéré par aujourdhui'),
-                    SizedBox(height: Dimension.listSpacing),
-                    SizedBox(
-                      height: 181,
-                      child: ListView.builder(
-                        scrollDirection:Axis.horizontal,
-                        padding: EdgeInsets.zero,
-                        itemCount: cardData.length,
-                        itemBuilder: (context, index) {
-                          final data = cardData[index];
-                          return HomeCategoriesCard(
-                            title: data['title'],
-                            totalContent: data['totalContent'],
-                            imageUrl: data['imageUrl'],
-                            description: data['description'],
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                );
-    }
-
     
+    final         colors = Provider.of<ThemeProvider>(context).colors;
+    SizeValues dimension = SizeValues();
+                    
+
+    Widget Content(){
+        return  ListView(
+              children: [
+                SizedBox(height: 50),
+                Container(
+                  padding: EdgeInsets.only(left:dimension.cardPadding, right:dimension.cardPadding),
+                  child:Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                  CupertinoText.title(context, 'Books'),
+                    MoreButton(context, (){})
+                ])),
+                SizedBox(height: Dimension.listSpacing),
+                Container(
+                  padding: EdgeInsets.only(left:dimension.cardPadding, right:dimension.cardPadding),
+                  child:SizedBox(
+                  height: 181,
+                  child: ListView.builder(
+                    scrollDirection:Axis.horizontal,
+                    itemCount: cardData.length,
+                    itemBuilder: (context, index) {
+                      final data = cardData[index];
+                      return HomeCategoriesCard(
+                        title: data['title'],
+                        totalContent: data['totalContent'],
+                        imageUrl: data['imageUrl'],
+                        description: data['description'],
+                      );
+                    },
+                  ),
+                )),
+                SizedBox(height: 10),
+                Container(
+                  padding: EdgeInsets.only(left:dimension.cardPadding, right:dimension.cardPadding),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                    color: const Color.fromARGB(16, 54, 244, 124),
+                    borderRadius: const BorderRadius.only(topRight: Radius.circular(10)),
+                    border: const Border(
+                        top: BorderSide(
+                          color: Colors.black,
+                          width: 0.1,
+                        ),
+                      bottom: BorderSide(
+                          color: Colors.black,
+                          width: 0.1,
+                        ),
+                      ),
+                      
+                  ),
+                  height: 300,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 30),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Badget(context: context, text: "A1 to C4", style: TextStyle()),
+                          CupertinoText.title(context, 'Start learning now'),
+                      
+                    ]),
+                    SizedBox(height: Dimension.sectionSpacing),
+                      LearnCallToActionCard(),
+                    ],
+                  ),
+                )
+          ],
+      );
+    }
     return SkeletonPage(
         child: Stack(
           children: [
-            const TopNavigationMenuBar(),
-            NavigationContainerState (container: Content())
+            TopNavigationMenuBar(),
+            NavigationContainerState (
+              posTop: 205,
+              padding: 0,
+              container: Content()
+              )
           ],
         ),
     );
   }
+}
+
+
+Widget Badget({
+  required BuildContext context,
+  required String text,
+  required TextStyle style,
+}) {
+  return Container(
+    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+    decoration: BoxDecoration(
+      color: Colors.blue.withOpacity(0.12), // fond doux
+      borderRadius: BorderRadius.circular(12), // arrondi premium
+      border: Border.all(
+        color: Colors.blue.withOpacity(0.35), // bord léger
+        width: 1,
+      ),
+    ),
+    child: CupertinoText.small(
+      context,
+      text,
+      copyWith: style.copyWith(
+        color: Colors.blue.shade700, // texte harmonisé
+        fontWeight: FontWeight.w600,
+      ),
+    ),
+  );
 }

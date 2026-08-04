@@ -63,7 +63,7 @@ Widget Header({required BuildContext context}) {
       // TITLE (Figma-style hero)
       CupertinoText.large(
         context,
-        "Intermediate".toUpperCase(),
+        "Intermediate",
       ),
     ],
   );

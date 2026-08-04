@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:iaenglish/core/themes/provider/themeProvide.dart';
 import 'package:provider/provider.dart';
 
-Widget CategoryNavigateButton(BuildContext context, VoidCallback onTap) {
+Widget MoreButton(BuildContext context, VoidCallback onTap) {
   final colors = context.read<ThemeProvider>().colors;
 
   return GestureDetector(
@@ -12,7 +12,7 @@ Widget CategoryNavigateButton(BuildContext context, VoidCallback onTap) {
       padding: const EdgeInsets.all(10),
     
       decoration: BoxDecoration(
-       color: colors.onBackground.withOpacity(0.06),
+       color: colors.primary.withOpacity(0.56),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -27,7 +27,8 @@ Widget CategoryNavigateButton(BuildContext context, VoidCallback onTap) {
         child: Icon(
           CupertinoIcons.arrow_right,
           size: 18,
-          color: colors.onBackground.withOpacity(0.6),
+          fontWeight: FontWeight.bold,
+          color: colors.primary.withOpacity(1),
         
         ),
       ),

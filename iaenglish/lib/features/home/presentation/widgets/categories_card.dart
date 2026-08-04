@@ -145,30 +145,6 @@ class _HomeCategoriesCardState extends State<HomeCategoriesCard> {
                               widget.title,
                             ),
                           ),
-
-                          // FLOATING BADGE
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 6,
-                            ),
-                            decoration: BoxDecoration(
-                              color: colors.tertiary.withOpacity(0.15),
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: colors.tertiary.withOpacity(0.4),
-                                width: 0.6,
-                              ),
-                            ),
-                            child: CupertinoText.small(
-                              context,
-                              "${widget.totalContent} Books",
-                              copyWith: TextStyle(
-                                color: colors.tertiary,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
                         ],
                       ),
 

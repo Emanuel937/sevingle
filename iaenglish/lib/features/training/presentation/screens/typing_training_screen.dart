@@ -27,13 +27,8 @@ class _TrainingReviewScreen extends State<TrainingReviewScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              "Training",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w800,
-                color: CupertinoColors.label,
-              ),
+            CupertinoText.large(context,
+              "Training"
             ),
 
             Row(

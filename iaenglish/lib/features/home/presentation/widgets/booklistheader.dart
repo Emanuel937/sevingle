@@ -3,7 +3,6 @@ import 'package:iaenglish/config/constant/size.dart';
 import 'package:iaenglish/core/themes/colors/abstract.dart';
 import 'package:iaenglish/core/themes/typographie/cuppertinoText.dart';
 import 'package:iaenglish/shared/widgets/navigatorPop.dart';
-import 'package:iaenglish/shared/widgets/search_icon.dart';
 
 Widget BookListHearder({required BuildContext context, required String title,  required BaseColors colors}) {
 
@@ -18,7 +17,6 @@ Widget BookListHearder({required BuildContext context, required String title,  r
               NavigatorPop(context: context),
               CupertinoText.large(context, "Books"),
           ]),
-          SearchIcon(),
         
         ],
       ),

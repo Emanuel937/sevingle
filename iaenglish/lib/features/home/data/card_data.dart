@@ -1,15 +1,16 @@
   final List<Map<String, dynamic>> cardData = [
-    {
-      'title': 'Technology Updates',
-      'totalContent': 24,
-      'imageUrl': 'https://media.istockphoto.com/id/1488335095/vector/3d-vector-robot-chatbot-ai-in-science-and-business-technology-and-engineering-concept.jpg?s=612x612&w=0&k=20&c=MSxiR6V1gROmrUBe1GpylDXs0D5CHT-mn0Up8D50mr8=',
-      'description': 'Stay ahead with the latest tech innovations and breakthroughs.',
-    },
+  
     {
       'title': 'Travel Adventures',
       'totalContent': 15,
-      'imageUrl': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+      'imageUrl': 'https://cdn.pixabay.com/photo/2025/04/28/15/52/travel-9565325_1280.png',
       'description': 'Explore breathtaking destinations and travel tips this is just a testing',
+    },
+      {
+      'title': 'Technology Updates',
+      'totalContent': 24,
+      'imageUrl': 'https://cdn.pixabay.com/photo/2023/01/16/19/13/laptop-7723139_1280.jpg',
+      'description': 'Stay ahead with the latest tech innovations and breakthroughs.',
     },
     {
       'title': 'Food & Cuisine',
