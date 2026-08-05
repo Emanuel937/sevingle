@@ -2,7 +2,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:iaenglish/core/themes/provider/themeProvide.dart';
 import 'package:iaenglish/core/themes/typographie/cuppertinoText.dart';
-import 'package:iaenglish/shared/widgets/progressbar.dart';
 import 'package:provider/provider.dart';
 
 Widget Header({required BuildContext context}) {
@@ -11,11 +10,9 @@ Widget Header({required BuildContext context}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      // TOP ROW — Icon + Action Button
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Icon container (Figma style)
           Container(
             height: 52,
             width: 52,
@@ -29,8 +26,6 @@ Widget Header({required BuildContext context}) {
               color: Color.fromARGB(108, 11, 49, 90),
             ),
           ),
-
-          // Premium capsule button
           CupertinoButton(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
             borderRadius: BorderRadius.circular(30),
@@ -57,10 +52,7 @@ Widget Header({required BuildContext context}) {
           ),
         ],
       ),
-
       const SizedBox(height: 22),
-
-      // TITLE (Figma-style hero)
       CupertinoText.large(
         context,
         "Intermediate",

@@ -5,6 +5,7 @@ import 'package:iaenglish/core/themes/typographie/cuppertinoText.dart';
 import 'package:iaenglish/features/learn/presentation/widgets/grammarContainer.dart';
 import 'package:iaenglish/features/learn/presentation/widgets/sliderWordContainer.dart';
 import 'package:iaenglish/features/learn/presentation/widgets/text.dart';
+import 'package:iaenglish/shared/widgets/closeButton.dart';
 import 'package:iaenglish/shared/widgets/slider.dart';
 import 'package:iaenglish/shared/widgets/stackcontainer.dart';
 import 'package:provider/provider.dart';
@@ -32,14 +33,7 @@ class _DetailsLessonScreen extends State<DetailsLessonScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
          children: [
           CupertinoText.small(context, "1/5"),
-          IconButton(
-            onPressed:(){
-              Navigator.pop(context);
-            }, 
-            icon: Icon(Icons.close,
-            color: colors.onBackground.withOpacity(0.5),
-              )
-            ),
+          XCloseButton(colors: colors, context:context)
           ]
         ),
         SizedBox(height: 10)

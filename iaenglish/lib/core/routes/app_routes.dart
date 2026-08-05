@@ -6,6 +6,7 @@ import 'package:iaenglish/features/home/presentation/screems/home.dart';
 import 'package:iaenglish/features/learn/presentation/screens/details_lesson_screen.dart';
 import 'package:iaenglish/features/learn/presentation/screens/lesson_list_screen.dart';
 import 'package:iaenglish/features/setting/presentation/setting_screen.dart';
+import 'package:iaenglish/features/training/presentation/screens/spelling.dart';
 import 'package:iaenglish/features/training/presentation/screens/typing_training_screen.dart';
 
 class AppRoutes {
@@ -18,9 +19,9 @@ class AppRoutes {
       //LEAR SCREEN ROUTES
       RouteNames.learn_list: (_) => const LessonListScreen(),
       RouteNames.learn_details: (_) => const DetailsLessonScreen(),
-      RouteNames.learn_training: (_) =>  TrainingReviewScreen(),
       // TRAINING SCREEN ROUTES
       RouteNames.training: (_) => TrainingReviewScreen(),
+      RouteNames.training_spelling_screen:(_)=>  SpellingTrainingOption(),
       // SETTING SCREEN ROUTES
       RouteNames.setting: (_) => const SettingScreen(),
     };

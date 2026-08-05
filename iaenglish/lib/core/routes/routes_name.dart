@@ -2,6 +2,8 @@ class RouteNames {
   //HOME
   static const home = '/home';
   static const training = '/training';
+
+   static const training_spelling_screen = '/training_spelling_screen';
   static const setting = '/setting';
   // ignore: constant_identifier_names
   // BOOKS
@@ -14,5 +16,5 @@ class RouteNames {
   static const learn_list = '/learn_list';
   // ignore: constant_identifier_names
   static const learn_details = '/learn_details';
-  static const learn_training = '/learn_training';
+ 
 }
