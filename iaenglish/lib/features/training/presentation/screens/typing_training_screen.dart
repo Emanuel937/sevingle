@@ -175,16 +175,20 @@ class _TrainingReviewScreen extends State<TrainingReviewScreen> {
 
                 _optionTile(
                   icon: CupertinoIcons.headphones,
-                  label: "Listening Practice",
+                  label: "Listening & Spelling Practice",
                   color: CupertinoColors.systemOrange,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteNames.training_listining_screen);
+                  },
                 ),
 
                 _optionTile(
                   icon: Icons.mic,
                   label: "Speaking Practice",
                   color: CupertinoColors.systemRed,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteNames.training_speaking_screen);
+                  },
                 ),
 
                 const SizedBox(height: 20),
@@ -225,12 +229,11 @@ class _TrainingReviewScreen extends State<TrainingReviewScreen> {
           children: [
             Icon(icon, size: 28, color: color),
             const SizedBox(width: 14),
-            Text(
+            CupertinoText.title(context,
               label,
-              style: const TextStyle(
-                fontSize: 17,
-                fontWeight: FontWeight.w600,
-              ),
+              copyWith: TextStyle(
+                fontSize: 15
+              )
             ),
           ],
         ),

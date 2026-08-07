@@ -2,43 +2,27 @@
 import 'package:flutter/material.dart';
 import 'package:iaenglish/core/themes/provider/themeProvide.dart';
 import 'package:iaenglish/core/themes/typographie/cuppertinoText.dart';
-import 'package:iaenglish/features/training/presentation/widgets/fillblank.dart';
 import 'package:iaenglish/shared/widgets/closeButton.dart';
 import 'package:iaenglish/shared/widgets/progressbar.dart';
 import 'package:iaenglish/shared/widgets/stackcontainer.dart';
 import 'package:provider/provider.dart';
 
 
-class SpellingTrainingOption extends StatefulWidget {
+class Exercisecontainer extends StatefulWidget {
 
-  const SpellingTrainingOption({super.key});
+  final Widget child; 
+  const Exercisecontainer({super.key, required this.child});
   @override
-  State<SpellingTrainingOption> createState() => _SpellingTrainingOptionState();
+  State<Exercisecontainer> createState() => _Exercisecontainer();
 
 }
 
-class _SpellingTrainingOptionState extends State<SpellingTrainingOption> {
+class _Exercisecontainer extends State<Exercisecontainer> {
   final TextEditingController answerController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    final controllers = {
-  0: TextEditingController(),
-  1: TextEditingController(),
-  2: TextEditingController(),
-  3: TextEditingController(),
-};
-    final colors = context.watch<ThemeProvider>().colors;
-    final exercises = [
-  {
-    "sentence": "The police officer explained that there was a complaint and that they had to {{blank}} her.",
-    "answer": "arrest",
-  },
-  {
-    "sentence": "Leaders must not {{blank}} their power to hurt people or get special treatment.",
-    "answer": "abuse",
-  }
-  
-];
+ final colors = context.watch<ThemeProvider>().colors;
+   
     return Stackcontainer(
       posTop: 160,
       headerNavigation: [
@@ -52,20 +36,7 @@ class _SpellingTrainingOptionState extends State<SpellingTrainingOption> {
         CupertinoProgressBar(value: 50, colors:colors)
       ],
       enableSearchInput: false,
-      child: FillBlankExercise(
-      exercises: exercises,
-      suggestions:[
-        "kidnap",
-        "murder",
-        "abuse",
-        "arrest",
-        "commit",
-      ],
-      controllers:controllers,
-      accentColor:colors.secondary,
-      onHelpPressed:(){
-      },
-      )
+      child:  widget.child
     );
   }}
 

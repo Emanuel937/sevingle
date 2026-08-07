@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
+import 'package:iaenglish/core/themes/colors/abstract.dart';
 import 'package:iaenglish/core/themes/typographie/cuppertinoText.dart';
+
 /// Custom iOS-style progress bar
 class CupertinoProgressBar extends StatelessWidget {
+  
   final double value;
-  const CupertinoProgressBar({super.key, required this.value});
+  final BaseColors? colors;
+  const CupertinoProgressBar({super.key, required this.value, this.colors});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -12,9 +17,9 @@ class CupertinoProgressBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
           CupertinoText.small(context, "20/100 sets completed"),
-          CupertinoText.bodyText(context,"2%"),
+          CupertinoText.bodyText(context, "$value %"),
         ]),
-        SizedBox(height: 7),
+        const SizedBox(height: 7),
         ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: Container(
@@ -25,10 +30,10 @@ class CupertinoProgressBar extends StatelessWidget {
           ),
           child: FractionallySizedBox(
             alignment: Alignment.centerLeft,
-            widthFactor: value,
+            widthFactor: value / 100,
             child: Container(
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 11, 38, 170),
+              decoration: BoxDecoration(
+                color: colors != null  ? colors!.secondary:  const Color.fromARGB(255, 11, 38, 170),
               ),
             ),
           ),
